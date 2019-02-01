@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercise - 3</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        #image{
+            background-image: url("images/recyclebin.png");
+            height: 48px;
+            width: 48px;
+            background-size: 48px;
+        }
+
+        #image:hover{
+            background-image: url("images/recyclebin-hover.png");
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Exercise - 3
+            <button id="btnNewOrder" class="btn btn-success"><i class="fas fa-plus"></i> New Order</button>
+        </h1>
+        <div class="row">
+            <div id="col1" class="col-md-4">
+                <div id="order-details" class="alert alert-warning">
+                    <div>Order ID: <label id="lblOrderId"></label></div>
+                    <div>Order Date: <label id="lblOrderDate"></label></div>
+                </div>
+                <div class="alert alert-primary">
+                    <div class="form-group">
+                        Customer ID:
+                        <select id="cmbCustomerID" class="form-control"></select>
+                    </div>
+                    <div>Customer Name: <label id="lblCustomerName"></label></div>
+                </div>
+                <div id="item-container" class="alert alert-dark">
+                    <div class="form-group">
+                        Item Code:
+                        <select id="cmbItemID" class="form-control"></select>
+                    </div>
+                    <div id="item-details">
+                        <div>Item Description: <label id="lblItemDescription"></label></div>
+                        <div>Unit Price: <label id="lblUnitPrice"></label></div>
+                        <div>Qty. On Hand: <label id="lblQtyOnHand"></label></div>
+                    </div>
+                    <div class="form-group">
+                        Qty.
+                        <input class="form-control" type="number" id="txtQty">
+                    </div>
+                    <div>
+                        <button id="btnAddCart" class="btn btn-warning"> <i class="fas fa-cart-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+            </div>
+            <div id="col2" class="col-md-8">
+                <div class="alert alert-success">
+                    <div id="tblContainer" class="table-dark">
+                        <table id="tblOrderDetails" class="table table-hover table-dark">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Item Code</th>
+                                    <th>Description</th>
+                                    <th>Unit Price</th>
+                                    <th class="text-center">Qty</th>
+                                    <th class="text-right">Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dummy Data -->
+                                <!-- <tr>
+                                    <td class="text-center">I001</td>
+                                    <td>Soap</td>
+                                    <td>35.0</td>
+                                    <td class="text-center">10</td>
+                                    <td class="text-right">350</td>
+                                    <td>
+                                        <img src="images/recyclebin.png" width="48px" alt="">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">I001</td>
+                                    <td>Soap</td>
+                                    <td>35.0</td>
+                                    <td class="text-center">10</td>
+                                    <td class="text-right">350</td>
+                                    <td><img src="images/recyclebin.png" width="48px" alt=""></td>
+                                </tr> -->
+                                <!-- Dummy Data -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <span id="spnTotal">Total: <label id="lblTotal">0.0</label></span>
+                        <button id="btnPlaceOrder" class="btn btn-primary"> <i class="fas fa-cart-arrow-down"></i>
+                            Place Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-center">Order Details</h3>
+            </div>
+            <table id="tblOrders" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th class="text-center">Order ID</th>
+                        <th class="text-center">Order Date</th>
+                        <th class="text-center">Customer ID</th>
+                        <th>Customer Name</th>
+                        <th class="text-right">Order Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dummy Data -->
+                    <!-- <tr>
+                        <td class="text-center">1</td>
+                        <td class="text-center">2018-01-01</td>
+                        <td class="text-center">C001</td>
+                        <td>Nuwan Ramindu</td>
+                        <td class="text-right">500.0</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">2</td>
+                        <td class="text-center">2018-01-01</td>
+                        <td class="text-center">C002</td>
+                        <td>Supun Ekanayaka</td>
+                        <td class="text-right">750.0</td>
+                    </tr> -->
+                    <!--/ Dummy Data-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/in-mem-db.js"></script>
+    <script src="js/home-controller.js"></script>
+    <!-- http://blog.stevenlevithan.com/archives/date-time-format -->
+    <script src="js/date-formatter.js"></script>
+    <script>
+        var today = new Date();
+        // Just need to parse the format that you need
+        var formattedDate = today.format("yyyy-mm-dd");
+        $("#lblOrderDate").text(formattedDate);
+    </script>
+    <script></script>
+</body>
+
+</html>
